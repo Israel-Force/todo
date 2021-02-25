@@ -1,0 +1,49 @@
+<section class="todo">
+  <article class="todo-container">
+    <header>
+      <div class="left">
+        <h1>{{ today | date: "fullDate" }}</h1>
+        <p *ngIf="!completed">
+          {{ task }} Active {{ task < 1 || task === 1 ? "Task" : "Tasks" }}
+        </p>
+        <p *ngIf="completed">
+          {{ task }} {{ task < 1 || task === 1 ? "Task" : "Tasks" }} Completed
+        </p>
+      </div>
+      <div class="right">
+        <p [ngClass]="completed ? '' : 'active'" (click)="changeTab(false)">
+          Incomplete Tasks
+        </p>
+        <p [ngClass]="completed ? 'active' : ''" (click)="changeTab(true)">
+          Completed Tasks
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="form-group">
+        <form>
+          <input
+            type="text"
+            placeholder="Enter a task..."
+            #taskTitle
+            (keyup)="(true)"
+          />
+          <input
+            type="submit"
+            value="Add Task"
+            (click)="addTask(taskTitle)"
+            [disabled]="!taskTitle.value"
+          />
+        </form>
+      </div>
+      <app-uncompleted *ngIf="!completed" (update)="updateTaskNumber($event)">
+      </app-uncompleted>
+      <app-completed
+        *ngIf="completed"
+        (changeView)="changeTab($event)"
+        (update)="updateTaskNumber($event)"
+      >
+      </app-completed>
+    </main>
+  </article>
+</section>

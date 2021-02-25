@@ -1,0 +1,19 @@
+<section class="uncompleted">
+  <ul>
+    <li *ngFor="let task of taskArray">
+      <span
+        [class.toggled]="task.isChecked"
+        (click)="toggle(task.id, task.isChecked)"
+      >
+        <i
+          class="fa fa-lg"
+          [ngClass]="task.isChecked ? 'fa-check-circle-o' : 'fa-circle-thin'"
+        ></i>
+      </span>
+      {{ task.name }}
+      <span class="trash" (click)="removeTask(task.id)">
+        <i class="fa fa-trash-o fa-lg"></i>
+      </span>
+    </li>
+  </ul>
+</section>
