@@ -1,0 +1,16 @@
+<section class="completed">
+  <ul>
+    <li *ngFor="let task of completedTaskArray">
+      <span>
+        {{ task.timeCompleted | date: "short" }}
+      </span>
+      <span> {{ task.name }}</span>
+      <span class="right">
+        <span (click)="redoTask(task.id, task.isChecked)"> redo </span>
+        <span class="trash" (click)="removeTask(task.id)">
+          <i class="fa fa-trash-o fa-lg"></i>
+        </span>
+      </span>
+    </li>
+  </ul>
+</section>

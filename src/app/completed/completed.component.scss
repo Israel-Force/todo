@@ -1,0 +1,43 @@
+@import "../../variable.scss";
+
+section.completed {
+  ul {
+    li {
+      span:first-of-type {
+        margin-right: 1.5rem;
+      }
+      span:nth-child(2) {
+        text-decoration: line-through;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      span:nth-child(3) {
+        color: $colorGrey;
+        cursor: pointer;
+      }
+      .right {
+        margin-left: auto;
+        flex: 0 0 30%;
+        justify-content: flex-end;
+        span:first-of-type {
+          &:hover {
+            color: $colorWhite;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    ul {
+      li {
+        span:first-of-type {
+          margin-right: 3rem;
+        }
+        .right {
+          flex: 0 0 12%;
+        }
+      }
+    }
+  }
+}

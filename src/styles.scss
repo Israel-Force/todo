@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+@import "./variable.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-size: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  @media (max-width: 992px) {
+    font-size: 52%;
+  }
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  font-size: inherit;
+  background-color: $primaryColor;
+  color: $colorWhite;
+}
+
+ul {
+  list-style: none;
+  li {
+    padding: 2rem 0;
+    border-bottom: 1px solid $colorGrey;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+  }
+}
